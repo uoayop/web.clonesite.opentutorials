@@ -1,16 +1,19 @@
 <template>
-  <div class="app">
+  <div class="table-content">
     <Header></Header>
-    <MAIN></MAIN>
+    <Bread></Bread>
+    <div class="fill-item"><MAIN></MAIN></div>
   </div>
 </template>
 
 <script>
-    import Header from '../components/Header.vue';
-    import MAIN from '../components/HelloWorld.vue';
+    import Header from '../components/main/Header.vue';
+    import Bread from '../components/main/breadcrumb.vue';
+    import MAIN from '../components/main.vue';
     export default {
     components: { 
-        Header,
+        Header,   
+        Bread,
         MAIN,
         },
     };
@@ -18,12 +21,21 @@
 
 <style>
     html,body{padding:0; margin:0;}
-    .app {
+    .table-content {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
     margin:0; padding:0;
-    }
+    max-height: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item {
+    flex: 1;
+  }
 </style>
