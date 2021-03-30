@@ -14,6 +14,12 @@
         <div id="article">
           <p v-html="getarticle"></p>
         </div>
+        <v-img
+          :src="require('../assets/MusicIsMyLife.jpeg')"
+          class="my-3"
+          contain
+          height="300"
+        />
       </v-col>
       </v-row>
       </v-layout>
@@ -28,21 +34,25 @@
   import markdown from "remark-parse";
   import remark2rehype from "remark-rehype";
   import html from "rehype-stringify";
+  
+  const mdText = `
 
-  const mdText = 
-  `# clone Project
+Hello, **Stranger!**
 
-Hello, **uoayop**!
+Please like my taste in music :)
 
-this is main page :)`;
+&nbsp;
 
+~~ 🎵 ~~
+# Music Is My Life✨
+`
+  console.log(mdText)
   const html_text = unified()
     .use(markdown)
     .use(remark2rehype)
     .use(html)
     .processSync(mdText);
-
-  console.log(html_text.toString());
+    
   // document.getElementById("").innerHTML = html_text.toString();
 
   export default {
@@ -50,7 +60,7 @@ this is main page :)`;
       return{ 
       getarticle: html_text
      }
-    }
+    },
   }
 </script>
 

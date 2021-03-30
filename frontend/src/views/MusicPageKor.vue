@@ -2,14 +2,14 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <div class="fill-item"><MAIN></MAIN></div>
+    <div class="fill-item"><CONTENT></CONTENT></div>
   </div>
 </template>
 
 <script>
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
-    import MAIN from '../components/main.vue';
+    import CONTENT from '../components/music_korea.vue';
     export default {
       data() {
         return {
@@ -19,12 +19,17 @@
             disabled: true,
             href:'/',
           },
+          {
+            text:'국내',
+            disabled: true,
+            href:'/Korea',
+          },
         ]}},
         components: { 
             Header,   
             Bread,
-            MAIN,
-            },
+            CONTENT,
+        },
     };
 </script>
 

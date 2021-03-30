@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/MainPage.vue';
+import Korea from '../views/MusicPageKor.vue';
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/Korea',
+    name: 'Korea',
+    component: Korea,
+  }
 
 ]
 
