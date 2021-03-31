@@ -27,19 +27,23 @@
 </template>
 
 <script>
-  export default {
-    created() {
-      this.$http.get('/api/musics/Korea')
-        .then((response) => {
-          this.musics = response.data;
-          console.log(response.data);
-        })
-    },
-    data() {
-      return{ 
-        musics: [],
-      }
-    },
+    export default {
+        props:['gen'],
+        created() {
+        console.log("[gen]",this.gen);
+        this.$http.get('/api/musics/Korea/'+this.gen)
+            .then((response) => {
+            console.log(response);
+            this.musics = response.data;
+            console.log(response.data);
+            })
+        },
+        data() {
+            return{ 
+                musics: [],
+                genre: this.gen,
+            }
+        },
   }
 </script>
 

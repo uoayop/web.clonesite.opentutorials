@@ -19,11 +19,12 @@
 
                     <v-list dense>
                         <v-list-item-group 
-                        v-model="selectedItem"
-                        color="primary">
+                            v-model="selectedItem"
+                            color="primary">
                             <v-list-item
                             v-for="(item, index) in items[0]"
                             :key="index"
+                            :to="{path:'/Korea/'+item.genre, params: { genre: item.genre }}"
                             >
 
                             <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -61,15 +62,15 @@
       selectedItem: -1,
       items: [
       [
-        { title: 'POP' },
-        { title: '힙합' },
-        { title: '인디' },
-        { title: '발라드' },
+        { title: 'POP', genre: '1' },
+        { title: '힙합', genre: '2' },
+        { title: '인디', genre: '3' },
+        { title: '발라드', genre: '4' },
      ],
      [
-        { title: 'POP' },
-        { title: '힙합' },
-        { title: '락' },
+        { title: 'POP', genre: '1' },
+        { title: '힙합', genre: '2' },
+        { title: '락', genre: '3' },
      ]
     ]
     }),
