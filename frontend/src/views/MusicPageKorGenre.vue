@@ -2,20 +2,21 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <div class="fill-item"><CONTENT></CONTENT></div>
+    <FAB></FAB>
+    <div class="fill-item"><CONTENT :gen="this.genre"></CONTENT></div>
   </div>
 </template>
 
 <script>
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
+    import FAB from '../components/common/floatingBtn.vue';
     import CONTENT from '../components/music_korea_genre.vue';
     
     export default {
       props:['genre'],
       data() {
         return {
-          p: this.genre,
           items: [
             {
             text:'생활음악',
@@ -38,6 +39,7 @@
             Header,   
             Bread,
             CONTENT,
+            FAB
         },
     };
 </script>

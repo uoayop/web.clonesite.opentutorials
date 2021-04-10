@@ -2,6 +2,7 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
+    <FAB></FAB>
     <div class="fill-item"><CONTENT></CONTENT></div>
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
+    import FAB from '../components/common/floatingBtn.vue';
     import CONTENT from '../components/music_korea.vue';
     export default {
       data() {
@@ -29,6 +31,7 @@
             Header,   
             Bread,
             CONTENT,
+            FAB,
         },
     };
 </script>

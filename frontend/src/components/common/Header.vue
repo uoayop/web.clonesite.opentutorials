@@ -48,7 +48,6 @@
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
-
                 </v-menu>
             </v-layout>
         </v-layout>

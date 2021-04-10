@@ -2,6 +2,7 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
+    
     <div class="fill-item"><MAIN></MAIN></div>
   </div>
 </template>

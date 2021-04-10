@@ -21,26 +21,26 @@
       </v-row>
       </v-layout>
     </v-layout>
-    
   </v-container>
   </v-app>
 </template>
 
 <script>
-  export default {
-    created() {
-      this.$http.get('/api/musics/Korea')
-        .then((response) => {
-          this.musics = response.data;
-          console.log(response.data);
-        })
-    },
-    data() {
-      return{ 
-        musics: [],
-      }
-    },
-  }
+
+    export default {
+      created() {
+        this.$http.get('/api/musics/Korea')
+          .then((response) => {
+            this.musics = response.data;
+            console.log(response.data);
+          })
+      },
+      data() {
+        return{ 
+          musics: [],
+        }
+      },
+    }
 </script>
 
 <style>

@@ -7,15 +7,9 @@
       <v-col
         v-for="music in musics"
         :key="music.vid"
-        cols="12"
-        md="4"
-        sm="6"
-        xs="12">
-        <v-card
-          class="rounded-card pt-4 pb-4 ml-0 mr-0"
-        >
-        <iframe width="330px" height="200px" :src="music.link" frameborder="0"></iframe>
-          
+        cols="auto" md="4" sm="6" xs="12">
+        <v-card class="rounded-card pt-4 pb-4 ml-0 mr-0">
+          <iframe width="330px" height="200px" :src="music.link" frameborder="0"></iframe>
         </v-card>
       </v-col>
       </v-row>
@@ -28,22 +22,30 @@
 
 <script>
     export default {
-        props:['gen'],
-        created() {
+      props:['gen'],
+      created() {
         console.log("[gen]",this.gen);
         this.$http.get('/api/musics/Korea/'+this.gen)
             .then((response) => {
             console.log(response);
             this.musics = response.data;
-            console.log(response.data);
+            console.log("musics:",response.data);
             })
-        },
-        data() {
-            return{ 
-                musics: [],
-                genre: this.gen,
-            }
-        },
+      },
+      data() {
+          return{ 
+              musics: [],
+              genre: this.gen,
+          }
+      },
+      watch:{
+        $route(){
+           this.$http.get('/api/musics/Korea/'+this.gen)
+            .then((response) => {
+            this.musics = response.data;
+            })
+        }
+      }
   }
 </script>
 

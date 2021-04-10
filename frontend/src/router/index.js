@@ -16,6 +16,7 @@ const routes = [
     path: '/Korea',
     name: 'Korea',
     component: Korea,
+    props: true
   },
   {
     path: '/Korea/:genre',
