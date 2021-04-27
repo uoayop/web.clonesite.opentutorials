@@ -3,10 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var history = require('connect-history-api-fallback');
 
+// router
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var musicRouter = require('./routes/musics');
+
+// database
+const connection = require('./config/database');
 
 var app = express();
 
@@ -17,8 +22,9 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.COOKIE_SECRET, { sameSite: "none", secure: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(history());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

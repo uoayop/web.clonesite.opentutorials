@@ -14,7 +14,7 @@
         <v-card
           class="rounded-card pt-4 pb-4 ml-0 mr-0"
         >
-        <iframe width="330px" height="200px" :src="music.link" frameborder="0"></iframe>
+        <iframe width="330px" height="200px" :src="music.URL" frameborder="0"></iframe>
           
         </v-card>
       </v-col>

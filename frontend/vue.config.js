@@ -7,9 +7,10 @@ module.exports = {
           changeOrigin: true, 
           pathRewrite: { 
             '^/api': ''
-          } 
+          },
+          historyApiFallback: true,
         } 
-      } 
+      },
     },
     // 배포 파일 위치를 지정
     outputDir: '../backend/public',

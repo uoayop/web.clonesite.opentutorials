@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>

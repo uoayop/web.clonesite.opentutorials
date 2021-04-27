@@ -23,6 +23,12 @@ const routes = [
     name: 'Genre',
     component: Genre,
     props: true
+  },
+  {
+    path: '/questions',
+    name: 'Genre',
+    component: Genre,
+    props: true
   }
 
 ]
