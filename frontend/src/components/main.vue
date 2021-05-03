@@ -43,8 +43,8 @@ Please like my taste in music :)
 
 &nbsp;
 
-~~ 🎵 ~~
-# Music Is My Life✨
+# 🎵
+ጿ ኈ ቼ 데 ዽ ጿ ኈ 굴 ቼ ዽ ጿ 데 ኈ ቼ ዽ 굴 ጿ ኈ ቼ 
 `
   console.log(mdText)
   const html_text = unified()

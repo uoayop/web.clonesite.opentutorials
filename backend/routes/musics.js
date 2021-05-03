@@ -8,8 +8,8 @@ router.get('/', function (req, res, next) {
     connection.query('use ME');
     connection.query('SELECT * from MUSICS', (error, rows, fields) => {
         if (error){
-            console.error(error);
             res.status(500).send('Internal Server Error');
+            throw error;
         }
 
         console.log(': ',rows);
@@ -57,9 +57,10 @@ router.get('/Korea', function(req, res, next){
 // 음악 추가하는 코드
 router.post('/AddMusic', function(req, res, next) {
     const params = req.body;
+    console.log("Post params:",params);
     connection.query('use ME');
     const query = `INSERT INTO MUSICS (TITLE, URL, GENRE, SINGER, Korea) VALUES
-    ("${params.title}", "${params.url}", ${params.genre}, "${params.singer}", 0);`;
+    ("${params.TITLE}", "${params.URL}", ${params.GENRE}, "${params.SINGER}", ${params.Korea});`;
   
     console.log('[POST] addMusics query: ', query);
   

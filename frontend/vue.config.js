@@ -9,7 +9,7 @@ module.exports = {
             '^/api': ''
           },
           historyApiFallback: true,
-        } 
+        },
       },
     },
     // 배포 파일 위치를 지정
