@@ -10,7 +10,7 @@
 <script>
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
-    import FAB from '../components/common/floatingBtn.vue';
+    import FAB from '../components/common/FloatingAddBtn.vue';
     import CONTENT from '../components/music_korea_genre.vue';
     
     export default {

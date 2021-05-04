@@ -24,7 +24,6 @@
       </v-row>
       </v-layout>
     </v-layout>
-    
   </v-container>
   </v-app>
 </template>

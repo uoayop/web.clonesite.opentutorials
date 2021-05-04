@@ -7,7 +7,7 @@
             fab
             top
             right
-            color="purple"
+            color="indigo lighten-1"
             @click="dialog = !dialog" >
             <v-icon>mdi-plus</v-icon>
         </v-btn>
@@ -32,7 +32,14 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-
+        <v-snackbar v-model="snackbar"  :timeout="timeout"  rounded="pill">
+           {{ text }}
+            <template v-slot:action="{ attrs }">
+              <v-btn color="pink" text v-bind="attrs" @click="snackbar = false" >
+                Close
+              </v-btn>
+            </template>
+    </v-snackbar>
   </v-container>
 </v-app>
 </template>
@@ -50,6 +57,9 @@
         singer:'',
         genre: '',
         vId:'',
+        snackbar: false,
+        text: `노래가 추가 됐어요!`,
+        timeout: 3000,
       }
     },
     methods:{
@@ -97,12 +107,15 @@
             });
           }catch(err){
             console.log(err);
-          }finally{
-            this.$router.push({path:'/Korea/'+genre}).catch(()=>{});
           }
-
         })
 
+        setTimeout(()=>{
+          this.$router.push({path:'/Korea/'+genre}).catch(()=>{
+            location.reload();
+          });
+        },1000);
+        this.snackbar = true;
       } 
     }
   }

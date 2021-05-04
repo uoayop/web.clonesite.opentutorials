@@ -1,41 +1,32 @@
- <template>
+<template>
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <FAB></FAB>
-    <FEB></FEB>
-    <div class="fill-item"><CONTENT></CONTENT></div>
+    <div class="fill-item"><List :link='link'></List></div>
   </div>
 </template>
 
 <script>
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
-    import FAB from '../components/common/FloatingAddBtn.vue';
-    import FEB from '../components/common/FloatingEditBtn.vue';
-    import CONTENT from '../components/music_korea.vue';
+    import List from '../components/musicList';
     export default {
       data() {
         return {
           items: [
             {
-            text:'생활음악',
-            disabled: true,
-            href:'/',
-          },
-          {
-            text:'국내',
-            disabled: true,
-            href:'/Korea',
-          },
-        ]}},
+              text:'생활음악',
+              disabled: true,
+              href:'/',
+            }
+          ],
+          link: 'edit'
+          }},
         components: { 
             Header,   
             Bread,
-            CONTENT,
-            FAB,
-            FEB,
-        },
+            List,
+            },
     };
 </script>
 

@@ -3,7 +3,8 @@ import VueRouter from 'vue-router';
 import Home from '../views/MainPage.vue';
 import Korea from '../views/MusicPageKor.vue';
 import Genre from '../views/MusicPageKorGenre.vue';
-import Youtube from '../views/youtube.vue';
+import Edit from '../views/MusicEditPage.vue';
+import Delete from '../views/MusicDeletePage.vue';
 
 Vue.use(VueRouter);
 
@@ -26,15 +27,16 @@ const routes = [
     props: true
   },
   {
-    path: '/questions',
-    name: 'Genre',
-    component: Genre,
-    props: true
+    path:'/setting/delete',
+    name: 'Delete',
+    component: Delete,
+    props:true,
   },
   {
-    path:'/youtube',
-    name: 'Youtube',
-    component: Youtube,
+    path:'/setting/edit',
+    name: 'Edit',
+    component: Edit,
+    props:true,
   }
 ]
 

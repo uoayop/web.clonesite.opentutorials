@@ -3,7 +3,7 @@ var router = express.Router();
 
 const connection = require('../config/database');
 
-// DB 모든 음악 반환
+// 모든 음악 반환
 router.get('/', function (req, res, next) {
     connection.query('use ME');
     connection.query('SELECT * from MUSICS', (error, rows, fields) => {
@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
     })
 });
 
-// 국내 장르 별 페이지를 위한 코드
+// 국내 음악 장르 별로 반환
 router.get('/Korea/:genre', function (req, res, next) {
     console.log("/Korea/:genre 호출");
     connection.query('use ME');
@@ -35,7 +35,7 @@ router.get('/Korea/:genre', function (req, res, next) {
 });
 
 
-// 국내 음악 반환하는 코드
+// 국내 음악 반환
 router.get('/Korea', function(req, res, next){
     console.log("/Korea 호출");
     connection.query('use ME');
@@ -54,7 +54,7 @@ router.get('/Korea', function(req, res, next){
 })
 
 
-// 음악 추가하는 코드
+// 음악 추가
 router.post('/AddMusic', function(req, res, next) {
     const params = req.body;
     console.log("Post params:",params);
@@ -81,5 +81,32 @@ router.post('/AddMusic', function(req, res, next) {
       });
     });
   });
+
+  // 음악 수정하기
+  router.put('/EditMusic/:id', function(req, res, next){
+    if (!req.params.id){
+        res.status(500).send('ID is not exist.');
+        return;
+    }
+
+    const params = req.body;
+    console.log("put params:",params);
+
+    connection.query('use ME');
+    const query = `UPDATE MUSICS SET TITLE="${params.TITLE}", GENRE=${params.GENRE}, SINGER="${params.SINGER}") WHERE ID=${req.params.id};`;
+  
+    console.log('[PUT] addMusics query: ', query);
+  
+    connection.query(query, (error, result) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
+  
+      console.log('[PUT] editMusics result: ', result);
+
+      res.send({ });
+    });
+  })
 
 module.exports = router;
