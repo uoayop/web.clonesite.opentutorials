@@ -93,9 +93,9 @@ router.post('/AddMusic', function(req, res, next) {
     console.log("put params:",params);
 
     connection.query('use ME');
-    const query = `UPDATE MUSICS SET TITLE="${params.TITLE}", GENRE=${params.GENRE}, SINGER="${params.SINGER}") WHERE ID=${req.params.id};`;
+    const query = `UPDATE MUSICS SET TITLE="${params.TITLE}", GENRE=${params.GENRE}, SINGER="${params.SINGER}" WHERE ID=${req.params.id};`;
   
-    console.log('[PUT] addMusics query: ', query);
+    console.log('[PUT] editMusics query: ', query);
   
     connection.query(query, (error, result) => {
       if (error) {
@@ -104,6 +104,29 @@ router.post('/AddMusic', function(req, res, next) {
       }
   
       console.log('[PUT] editMusics result: ', result);
+
+      res.send({ });
+    });
+  })
+
+  router.delete('/DeleteMusic/:id', function(req, res, next){
+    if (!req.params.id){
+        res.status(500).send('ID is not exist.');
+        return;
+    }
+
+    connection.query('use ME');
+    const query = `DELETE FROM MUSICS WHERE id = ${req.params.id};;`;
+  
+    console.log('[delete] deleteMusic query: ', query);
+  
+    connection.query(query, (error, result) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      }
+  
+      console.log('[DELETE] deleteMusic result: ', result);
 
       res.send({ });
     });

@@ -52,8 +52,6 @@ Please like my taste in music :)
     .use(html)
     .processSync(mdText);
     
-  // document.getElementById("").innerHTML = html_text.toString();
-
   export default {
     data() {
       return{ 

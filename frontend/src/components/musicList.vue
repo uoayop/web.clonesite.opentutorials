@@ -99,7 +99,7 @@
       }
     },
     created(){
-        this.$http.get('/api/musics/Korea')
+        axios.get('http://localhost:8080/api/musics/Korea')
           .then((response) => {
             this.musics = response.data;
             console.log(response.data);
@@ -119,9 +119,6 @@
               // console.log("[result] title: ",title, "vid:",this.vId);
                 axios.put('http://localhost:8080/api/musics/EditMusic/'+this.vId,
                 {
-                  params:{
-                    id: this.vId
-                  },  
                   "TITLE": this.title,  
                   "GENRE": this.genre,
                   "SINGER": this.singer,
@@ -131,8 +128,15 @@
               }
             }
             else{
-                console.log('삭제 작업')
+                try{
+              // console.log("[result] title: ",title, "vid:",this.vId);
+                axios.delete('http://localhost:8080/api/musics/DeleteMusic/'+this.vId);
+              }catch(err){
+                console.log(err);
+              }
             }
+
+            location.reload();
         }
     }
   }

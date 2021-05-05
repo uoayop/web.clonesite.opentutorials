@@ -21,16 +21,18 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    
     export default {
       props:['gen'],
       created() {
         console.log("[gen]",this.gen);
-        this.$http.get('/api/musics/Korea/'+this.gen)
-            .then((response) => {
-            console.log(response);
-            this.musics = response.data;
-            console.log("musics:",response.data);
-            })
+        axios.get('http://localhost:8080/api/musics/Korea/'+this.gen)
+        .then((response) => {
+          console.log(response);
+          this.musics = response.data;
+          console.log("musics:",response.data);
+        })
       },
       data() {
           return{ 
@@ -40,10 +42,10 @@
       },
       watch:{
         $route(){
-           this.$http.get('/api/musics/Korea/'+this.gen)
-            .then((response) => {
+           axios.get('http://localhost:8080/api/musics/Korea/'+this.gen)
+          .then((response) => {
             this.musics = response.data;
-            })
+          })
         }
       }
   }
