@@ -2,7 +2,7 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <FAB></FAB>
+    <FAB :AddFrom='AddFrom'></FAB>
     <div class="fill-item"><CONTENT :gen="this.genre"></CONTENT></div>
   </div>
 </template>
@@ -34,6 +34,7 @@
             href:'/Korea/Genre',
           },
         ],
+        AddFrom: 'Korea',
         }},
         components: { 
             Header,   

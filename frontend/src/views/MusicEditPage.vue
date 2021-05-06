@@ -2,7 +2,7 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <div class="fill-item"><List :link='link'></List></div>
+    <div class="fill-item"><List :link='link' :addFrom='addFrom'></List></div>
   </div>
 </template>
 
@@ -20,7 +20,8 @@
               href:'/',
             }
           ],
-          link: 'edit'
+          link: 'edit',
+          addFrom: this.AddFrom,
           }},
         components: { 
             Header,   

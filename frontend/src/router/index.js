@@ -2,7 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/MainPage.vue';
 import Korea from '../views/MusicPageKor.vue';
-import Genre from '../views/MusicPageKorGenre.vue';
+import KorGenre from '../views/MusicPageKorGenre.vue';
+import Global from '../views/MusicPageGlobal.vue';
+import GloGenre from '../views/MusicPageGlobalGenre.vue';
+
 import Edit from '../views/MusicEditPage.vue';
 import Delete from '../views/MusicDeletePage.vue';
 
@@ -22,8 +25,20 @@ const routes = [
   },
   {
     path: '/Korea/:genre',
-    name: 'Genre',
-    component: Genre,
+    name: 'KorGenre',
+    component: KorGenre,
+    props: true
+  },
+  {
+    path: '/Global',
+    name: 'Global',
+    component: Global,
+    props: true
+  },
+  {
+    path: '/Global/:genre',
+    name: 'GloGenre',
+    component: GloGenre,
     props: true
   },
   {

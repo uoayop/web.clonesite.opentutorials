@@ -2,8 +2,8 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <FAB></FAB>
-    <FEB></FEB>
+    <FAB :AddFrom="AddFrom"></FAB>
+    <FEB :AddFrom='AddFrom'></FEB>
     <div class="fill-item"><CONTENT></CONTENT></div>
   </div>
 </template>
@@ -28,7 +28,9 @@
             disabled: true,
             href:'/Korea',
           },
-        ]}},
+        ],
+        AddFrom: 'Korea',
+        }},
         components: { 
             Header,   
             Bread,

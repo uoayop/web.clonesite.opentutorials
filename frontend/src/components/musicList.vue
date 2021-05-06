@@ -74,7 +74,7 @@
   import axios from 'axios';
 
   export default {
-    props:['link'],
+    props:['link','addFrom'],
     data () {
       return {
         action:this.link,
@@ -84,6 +84,7 @@
         singer:'',
         vId:0,
         genre:0,
+        AddFrom:this.addFrom,
         headers: [
         {
             text: '노래 제목',
@@ -99,7 +100,7 @@
       }
     },
     created(){
-        axios.get('http://localhost:8080/api/musics/Korea')
+        axios.get('http://localhost:8080/api/musics/')
           .then((response) => {
             this.musics = response.data;
             console.log(response.data);

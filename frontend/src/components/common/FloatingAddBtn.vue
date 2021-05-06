@@ -22,7 +22,14 @@
             </v-card-text>
             <v-card-text>
                 <v-text-field v-model="genre" label="장르" ></v-text-field>
-              <small class="grey--text">* 장르 : 1(pop), 2(힙합), 3(인디), 4(발라드)</small>
+              <small class="grey--text">* 국내 장르 : 1(pop), 2(힙합), 3(인디), 4(발라드)</small><br/>
+              <small class="grey--text">* 해외 장르 : 1(pop), 2(힙합), 3(락)</small>
+            </v-card-text>
+            <v-card-text>
+                <v-radio-group v-model="nation" row>
+                    <v-radio label="국내" value="0"></v-radio>  
+                    <v-radio label="해외" value="1"></v-radio>  
+                </v-radio-group>   
             </v-card-text>
 
             <v-card-actions>
@@ -50,6 +57,7 @@
 
 
   export default {
+    props:['AddFrom'],
     data () {
       return {
         dialog: false,
@@ -57,6 +65,7 @@
         singer:'',
         genre: '',
         vId:'',
+        nation:0,
         snackbar: false,
         text: `노래가 추가 됐어요!`,
         timeout: 3000,
@@ -67,6 +76,7 @@
         var title = ""+this.title;
         var singer = ""+this.singer;
         var genre = this.genre;
+        var nation = this.nation;
 
         var request=require('request');
         var optionParams={
@@ -103,7 +113,7 @@
               "URL": "https://www.youtube.com/embed/" + this.vId,
               "GENRE": genre,
               "SINGER": singer,
-              "Korea": 0,
+              "Korea": nation,
             });
           }catch(err){
             console.log(err);
@@ -111,12 +121,15 @@
         })
 
         setTimeout(()=>{
-          this.$router.push({path:'/Korea/'+genre}).catch(()=>{
+          this.$router.push({path:this.AddFrom +"/"+ genre}).catch(()=>{
             location.reload();
           });
         },1000);
         this.snackbar = true;
       } 
+    },
+    created(){
+      console.log("AddFrom:",this.AddFrom);
     }
   }
 </script>

@@ -35,15 +35,17 @@
                 <v-divider vertical></v-divider>
                 <v-menu open-on-hover>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-flex v-bind="attrs" v-on="on"><a href="javascript:;" class="menu">해외</a></v-flex>
+                        <v-flex v-bind="attrs" v-on="on"><router-link to="/Global" class="menu">해외</router-link></v-flex>
                     </template>
 
                     <v-list dense>
                         <v-list-item-group 
-                        v-model="selectedItem"
-                        color="primary">
-                        
-                            <v-list-item v-for="(item, index) in items[1]" :key="index"  >
+                            v-model="selectedItem"
+                            color="primary">
+                            <v-list-item 
+                            v-for="(item, index) in items[1]" 
+                            :key="index"
+                            :to="{path:'/Global/'+item.genre, params: { genre: item.genre }}">
                             <v-list-item-title>{{ item.title }}</v-list-item-title>
                             </v-list-item>
                         </v-list-item-group>

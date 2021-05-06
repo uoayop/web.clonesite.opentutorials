@@ -53,6 +53,41 @@ router.get('/Korea', function(req, res, next){
     })
 })
 
+// 해외 음악 장르 별로 반환
+router.get('/Global/:genre', function (req, res, next) {
+  console.log("/Global/:genre 호출");
+  connection.query('use ME');
+  connection.query('SELECT * from MUSICS', (error, rows, fields) => {
+      if (error){
+          console.error(error);
+          res.status(500).send('Internal Server Error');
+      }
+      var genre = parseInt(req.params.genre, 10)
+      var music = rows.filter(function (music) {
+          return (music.GENRE === genre && music.Korea === 1)
+      });
+      res.send(music);
+  })
+});
+
+
+// 해외 음악 반환
+router.get('/Global', function(req, res, next){
+  console.log("/Global 호출");
+  connection.query('use ME');
+  connection.query('SELECT * from MUSICS', (error, rows, fields) => {
+      if (error){
+          console.error(error);
+          res.status(500).send('Internal Server Error');
+      }
+
+      console.log(': ',rows);
+      var music = rows.filter(function (music) {
+          return music.Korea === 1
+      });
+      res.send(music);
+  })
+})
 
 // 음악 추가
 router.post('/AddMusic', function(req, res, next) {

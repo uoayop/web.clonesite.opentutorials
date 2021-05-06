@@ -2,7 +2,7 @@
   <div class="table-content">
     <Header></Header>
     <Bread :items='items'></Bread>
-    <div class="fill-item"><List :link='link'></List></div>
+    <div class="fill-item"><List :link='link' :addFrom='addFrom'></List></div>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
     import Bread from '../components/common/breadcrumb.vue';
     import List from '../components/musicList';
     export default {
+      props:['AddFrom'],
       data() {
         return {
           items: [
@@ -20,7 +21,8 @@
             href:'/',
           }
         ],
-        link: 'delete'
+        link: 'delete',
+        addFrom: this.AddFrom,
         }},
         components: { 
             Header,   
