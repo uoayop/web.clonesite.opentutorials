@@ -27,6 +27,7 @@
       props:['gen'],
       created() {
         console.log("[gen]",this.gen);
+        
         axios.get('http://localhost:8080/api/musics/Global/'+this.gen)
         .then((response) => {
           console.log(response);

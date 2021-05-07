@@ -27,9 +27,10 @@
 
 <script>
     import axios from 'axios'
+
     export default {
       created() {
-        axios.get('http://localhost:8080/api/musics/')
+        axios.get('http://localhost:8080/api/musics/Korea')
           .then((response) => {
             this.musics = response.data;
             console.log(response.data);

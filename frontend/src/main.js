@@ -15,9 +15,12 @@ import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store/index'
 import axios from 'axios'
+import VueCookies from 'vue-cookies';
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
+Vue.use(VueCookies);
+Vue.$cookies.config("5d");
 
 const BASE_URL = process.env.VUE_APP_API_URL
 export default BASE_URL

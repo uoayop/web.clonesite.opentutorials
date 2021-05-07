@@ -110,7 +110,7 @@
             axios.post('http://localhost:8080/api/musics/AddMusic',
             {
               "TITLE": title,  
-              "URL": "https://www.youtube.com/embed/" + this.vId,
+              "URL": "https://www.youtube-nocookie.com/embed/" + this.vId,
               "GENRE": genre,
               "SINGER": singer,
               "Korea": nation,

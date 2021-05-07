@@ -4,18 +4,18 @@ var router = express.Router();
 const connection = require('../config/database');
 
 // 모든 음악 반환
-router.get('/', function (req, res, next) {
-    connection.query('use ME');
-    connection.query('SELECT * from MUSICS', (error, rows, fields) => {
-        if (error){
-            res.status(500).send('Internal Server Error');
-            throw error;
-        }
+// router.get('/', function (req, res, next) {
+//     connection.query('use ME');
+//     connection.query('SELECT * from MUSICS', (error, rows, fields) => {
+//         if (error){
+//             res.status(500).send('Internal Server Error');
+//             throw error;
+//         }
 
-        console.log(': ',rows);
-        res.send(rows);
-    })
-});
+//         console.log(': ',rows);
+//         res.send(rows);
+//     })
+// });
 
 // 국내 음악 장르 별로 반환
 router.get('/Korea/:genre', function (req, res, next) {

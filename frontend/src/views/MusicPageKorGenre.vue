@@ -3,6 +3,7 @@
     <Header></Header>
     <Bread :items='items'></Bread>
     <FAB :AddFrom='AddFrom'></FAB>
+    <FEB :AddFrom='AddFrom'></FEB>
     <div class="fill-item"><CONTENT :gen="this.genre"></CONTENT></div>
   </div>
 </template>
@@ -11,6 +12,7 @@
     import Header from '../components/common/Header.vue';
     import Bread from '../components/common/breadcrumb.vue';
     import FAB from '../components/common/FloatingAddBtn.vue';
+    import FEB from '../components/common/FloatingEditBtn.vue';
     import CONTENT from '../components/music_korea_genre.vue';
     
     export default {
@@ -40,7 +42,8 @@
             Header,   
             Bread,
             CONTENT,
-            FAB
+            FAB,
+            FEB,
         },
     };
 </script>
